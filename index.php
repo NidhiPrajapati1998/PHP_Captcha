@@ -79,7 +79,7 @@
                 <?php }} ?>
 
             <tr>
-                <td><label  id="textInput2">Enter Capcha:</label></td> 
+                <td><label  id="textInput2">Enter Captcha:</label></td> 
                 <td><input  id="textInput3" type="text" name="code"  maxlength="50"></td> 
             </tr>
 
