@@ -5,8 +5,7 @@
         $code = $_SESSION['captcha_code'];
         if($_POST['code'] == null)
         {?>
-            <script>alert(`Pls enter captcha!!`);
-            </script>
+           
             <?php
         }
         elseif($_POST['code'] == $code)
@@ -42,8 +41,11 @@
             <td></td>
             <td><?php
                 if (!empty($_POST['txt_input'])) 
-                {                    
+                {       
+
                     $input_text = $_POST['txt_input'];
+                    if(strlen($input_text) >=4)
+                    {
                     $_SESSION['captcha_code'] = $input_text;
                     $width = (strlen($input_text)*9)+20;
                     $height = 30;
@@ -66,6 +68,11 @@
                     imagepng($output);
                     
                     printf('<img id="output" align="center" src="data:image/png;base64,%s" />', base64_encode(ob_get_clean()));
+                    }
+                    
+                    else{
+                        header("Location:HTTP/1.0 404 Not Found");
+                    }
                 }
                 ?></td>
                 <?php
